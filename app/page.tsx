@@ -112,37 +112,8 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-20 grid grid-cols-2 gap-8 border-t border-border pt-12 md:grid-cols-5">
-          <RevenuePillar icon={Shield} label="Authority" />
-          <RevenuePillar icon={TrendingUp} label="Visibility" />
-          <RevenuePillar icon={Clock} label="Consistency" />
-          <RevenuePillar icon={Star} label="Credibility" />
-          <RevenuePillar icon={Target} label="Conversion" />
-        </div>
-        <p className="mt-6 text-center text-sm font-medium text-muted-foreground">
-          If your revenue depends on these — we build your content system.
-        </p>
       </div>
     </section>
-  );
-}
-
-function RevenuePillar({
-  icon: Icon,
-  label,
-}: {
-  icon: typeof Shield;
-  label: string;
-}) {
-  return (
-    <div className="flex flex-col items-center text-center">
-      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft">
-        <Icon className="h-5 w-5 text-primary" />
-      </div>
-      <div className="font-serif text-lg font-semibold text-primary-deep">
-        {label}
-      </div>
-    </div>
   );
 }
 
