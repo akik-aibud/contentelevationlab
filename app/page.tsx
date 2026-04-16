@@ -671,11 +671,12 @@ function Pricing() {
       tag: "Start here",
       pitch: "Build your first professional presence online.",
       features: [
-        "2-hour discovery & coaching",
-        "Strategy planning & training",
-        "4-hour filming session",
+        "2-hour discovery & coaching session",
+        "2-hour content strategy session",
+        "90-minute training",
+        "4 hours filming with operator",
         "6 scripts",
-        "6 edited videos",
+        "6 edited videos with cover & captions",
         "8 branded photos",
       ],
       cta: "Book Showcase",
@@ -688,11 +689,13 @@ function Pricing() {
       tag: "Stay active",
       pitch: "Stay active online without the overwhelm.",
       features: [
-        "Initial discovery sessions",
+        "Initial 2-hour discovery & strategy",
+        "90-minute training",
         "4 scripts monthly",
-        "Filming every two months",
+        "5 filming hours every 2 months",
         "4 edited videos monthly",
-        "Seasonal training meetings",
+        "8 branded photos",
+        "Seasonal 90-min strategy meetings",
       ],
       cta: "Start Consistency",
       featured: false,
@@ -704,14 +707,16 @@ function Pricing() {
       tag: "Most popular",
       pitch: "Position yourself as a trusted expert.",
       features: [
-        "6 monthly scripts",
-        "4 carousel posts",
-        "6 edited videos",
+        "Initial 2-hour discovery & strategy",
+        "90-minute training",
+        "6 scripts monthly",
+        "4 carousel posts monthly",
+        "5 filming hours monthly",
+        "6 edited videos monthly",
         "15 branded photos",
-        "Monthly strategy updates",
-        "Priority scheduling",
+        "Monthly 90-min strategy meetings",
       ],
-      cta: "Become the Authority",
+      cta: "Become Authority",
       featured: true,
     },
     {
@@ -721,13 +726,16 @@ function Pricing() {
       tag: "Growth engine",
       pitch: "Turn your social media into a growth engine.",
       features: [
-        "8 monthly scripts",
-        "6 carousel posts",
-        "8 edited videos",
+        "Initial 2-hour discovery & strategy",
+        "90-minute training",
+        "8 scripts monthly",
+        "6 carousel posts monthly",
+        "5 filming hours monthly",
+        "8 edited videos monthly",
         "20 branded photos",
-        "Biweekly meetings",
-        "Live training sessions",
-        "Seasonal funnel analysis",
+        "Biweekly 90-min meetings",
+        "1-hour live strategy training",
+        "Seasonal sales funnel analysis",
       ],
       cta: "Unlock Influence",
       featured: false,
@@ -824,13 +832,13 @@ function Pricing() {
               </ul>
               <a
                 href={BOOKING_URL}
-                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition ${
+                className={`mt-8 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-3.5 text-sm font-medium transition ${
                   t.featured
                     ? "bg-accent text-primary-deep hover:bg-accent/90"
                     : "bg-primary-deep text-white hover:bg-primary"
                 }`}
               >
-                {t.cta} <ArrowRight className="h-4 w-4" />
+                {t.cta} <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </a>
             </div>
           ))}
@@ -921,19 +929,44 @@ function FinalCTA() {
             "radial-gradient(circle at 30% 50%, #d4a24c30 0%, transparent 50%), radial-gradient(circle at 70% 50%, #6b2fa540 0%, transparent 50%)",
         }}
       />
-      <div className="relative mx-auto max-w-3xl px-6 text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
-          Engineered to make you the name
+      <div className="relative mx-auto max-w-4xl px-6">
+        <div className="text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
+            Get in touch
+          </div>
+          <h2 className="font-serif text-5xl leading-tight md:text-6xl">
+            Ready to turn your content
+            <br />
+            into a{" "}
+            <span className="text-accent">growth system?</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
+            CEL&apos;s experts are ready to respond with precision and care.
+            Send us a message and we&apos;ll get back to you within 24–48
+            hours.
+          </p>
         </div>
-        <h2 className="font-serif text-5xl leading-tight md:text-6xl">
-          Be the name{" "}
-          <span className="text-accent">everyone follows</span>.
-        </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
-          Book a consultation. We&apos;ll map your positioning, audience, and
-          authority gaps — and show you what a seasonal content system could
-          look like for your business.
-        </p>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <ContactCard
+            icon={Phone}
+            label="Call"
+            value={PHONE}
+            href={`tel:${PHONE_TEL}`}
+          />
+          <ContactCard
+            icon={Mail}
+            label="Email"
+            value={EMAIL}
+            href={`mailto:${EMAIL}?subject=Book%20Consultation`}
+          />
+          <ContactCard
+            icon={MapPin}
+            label="Visit"
+            value="Ottawa, ON"
+          />
+        </div>
+
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href={`mailto:${EMAIL}?subject=Book%20Consultation`}
@@ -946,12 +979,39 @@ function FinalCTA() {
             href={`tel:${PHONE_TEL}`}
             className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-base font-medium text-white transition hover:bg-white/10"
           >
-            <Phone className="h-4 w-4" /> {PHONE}
+            Call {PHONE}
           </a>
         </div>
       </div>
     </section>
   );
+}
+
+function ContactCard({
+  icon: Icon,
+  label,
+  value,
+  href,
+}: {
+  icon: typeof Phone;
+  label: string;
+  value: string;
+  href?: string;
+}) {
+  const inner = (
+    <div className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-accent/40 hover:bg-white/[0.08]">
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-accent/15">
+        <Icon className="h-5 w-5 text-accent" />
+      </div>
+      <div>
+        <div className="text-xs font-medium uppercase tracking-wider text-white/50">
+          {label}
+        </div>
+        <div className="mt-1 font-medium text-white">{value}</div>
+      </div>
+    </div>
+  );
+  return href ? <a href={href}>{inner}</a> : inner;
 }
 
 /* ─────────────────────────── FOOTER ─────────────────────────── */
