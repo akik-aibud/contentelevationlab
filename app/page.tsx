@@ -3,9 +3,6 @@ import {
   ArrowRight,
   Check,
   Star,
-  Phone,
-  Mail,
-  MapPin,
   Sparkles,
   Target,
   Video,
@@ -13,13 +10,14 @@ import {
   Shield,
   Clock,
   ChevronRight,
-  Quote,
+  MapPin,
+  Phone,
 } from "lucide-react";
+import { Nav } from "@/components/nav";
+import { Footer } from "@/components/footer";
+import { SITE } from "@/components/site-config";
 
-const BOOKING_URL = "#book";
-const PHONE = "(613) 799-3694";
-const PHONE_TEL = "+16137993694";
-const EMAIL = "hello@contentelevationlab.ca";
+const BOOKING_URL = SITE.booking;
 
 export default function Page() {
   return (
@@ -34,45 +32,12 @@ export default function Page() {
         <Services />
         <Comparison />
         <Testimonials />
-        <Founders />
         <Pricing />
         <FAQ />
         <FinalCTA />
       </main>
       <Footer />
     </>
-  );
-}
-
-/* ─────────────────────────── NAV ─────────────────────────── */
-
-function Nav() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-deep">
-            <Sparkles className="h-4 w-4 text-accent" />
-          </div>
-          <span className="font-serif text-lg font-semibold text-primary-deep">
-            Content Elevation Lab
-          </span>
-        </Link>
-        <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-          <a href="#services" className="hover:text-primary-deep">Services</a>
-          <a href="#framework" className="hover:text-primary-deep">Framework</a>
-          <a href="#pricing" className="hover:text-primary-deep">Pricing</a>
-          <a href="#about" className="hover:text-primary-deep">About</a>
-        </nav>
-        <a
-          href={BOOKING_URL}
-          className="inline-flex items-center gap-1.5 rounded-full bg-primary-deep px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary"
-        >
-          Book Consultation
-          <ArrowRight className="h-3.5 w-3.5" />
-        </a>
-      </div>
-    </header>
   );
 }
 
@@ -593,73 +558,6 @@ function Testimonials() {
   );
 }
 
-/* ─────────────────────────── FOUNDERS ─────────────────────────── */
-
-function Founders() {
-  const founders = [
-    {
-      name: "Sina Aminnia",
-      role: "Co-Founder",
-      bio: "Brand strategist and ICF-trained coach with 8+ years in audience development. Built social platforms reaching 380,000 followers. Background in mechanical engineering.",
-      initials: "SA",
-    },
-    {
-      name: "Soroush Saravani",
-      role: "Co-Founder & Strategy Lead",
-      bio: "Business growth strategist and ICF-trained coach specializing in authority-building for service-based businesses.",
-      initials: "SS",
-    },
-  ];
-  return (
-    <section id="about" className="bg-muted py-24">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-12 text-center">
-          <div className="mb-4 text-xs font-medium uppercase tracking-widest text-accent-deep">
-            Meet the Lab
-          </div>
-          <h2 className="font-serif text-4xl text-primary-deep md:text-5xl">
-            Strategy-first.
-            <br />
-            <span className="text-muted-foreground">
-              Professional-grade production.
-            </span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            An Ottawa-based content strategy and production studio. We help
-            high-quality professionals become recognized names by building
-            trust through clarity, consistency, and strategy.
-          </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          {founders.map((f) => (
-            <div
-              key={f.name}
-              className="flex flex-col rounded-3xl bg-white p-8 ring-1 ring-border"
-            >
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-deep font-serif text-xl font-semibold text-accent">
-                  {f.initials}
-                </div>
-                <div>
-                  <div className="font-serif text-2xl text-primary-deep">
-                    {f.name}
-                  </div>
-                  <div className="text-sm font-medium text-accent-deep">
-                    {f.role}
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {f.bio}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ─────────────────────────── PRICING ─────────────────────────── */
 
 function Pricing() {
@@ -914,14 +812,12 @@ function FAQ() {
   );
 }
 
+
 /* ─────────────────────────── FINAL CTA ─────────────────────────── */
 
 function FinalCTA() {
   return (
-    <section
-      id="book"
-      className="relative overflow-hidden bg-primary-deep py-24 text-white"
-    >
+    <section className="relative overflow-hidden bg-primary-deep py-24 text-white">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -929,173 +825,34 @@ function FinalCTA() {
             "radial-gradient(circle at 30% 50%, #d4a24c30 0%, transparent 50%), radial-gradient(circle at 70% 50%, #6b2fa540 0%, transparent 50%)",
         }}
       />
-      <div className="relative mx-auto max-w-4xl px-6">
-        <div className="text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
-            Get in touch
-          </div>
-          <h2 className="font-serif text-5xl leading-tight md:text-6xl">
-            Ready to turn your content
-            <br />
-            into a{" "}
-            <span className="text-accent">growth system?</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
-            CEL&apos;s experts are ready to respond with precision and care.
-            Send us a message and we&apos;ll get back to you within 24–48
-            hours.
-          </p>
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
+          Ready when you are
         </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <ContactCard
-            icon={Phone}
-            label="Call"
-            value={PHONE}
-            href={`tel:${PHONE_TEL}`}
-          />
-          <ContactCard
-            icon={Mail}
-            label="Email"
-            value={EMAIL}
-            href={`mailto:${EMAIL}?subject=Book%20Consultation`}
-          />
-          <ContactCard
-            icon={MapPin}
-            label="Visit"
-            value="Ottawa, ON"
-          />
-        </div>
-
+        <h2 className="font-serif text-5xl leading-tight md:text-6xl">
+          Be the name <span className="text-accent">everyone follows</span>.
+        </h2>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
+          Book a consultation. We&apos;ll map your positioning, audience, and
+          authority gaps — and show you what a seasonal content system could
+          look like for your business.
+        </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href={`mailto:${EMAIL}?subject=Book%20Consultation`}
+          <Link
+            href="/contact"
             className="group inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-medium text-primary-deep shadow-xl shadow-accent/20 transition hover:bg-accent/90"
           >
             Book Consultation
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+          </Link>
           <a
-            href={`tel:${PHONE_TEL}`}
+            href={`tel:${SITE.phoneTel}`}
             className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-base font-medium text-white transition hover:bg-white/10"
           >
-            Call {PHONE}
+            <Phone className="h-4 w-4" /> {SITE.phone}
           </a>
         </div>
       </div>
     </section>
-  );
-}
-
-function ContactCard({
-  icon: Icon,
-  label,
-  value,
-  href,
-}: {
-  icon: typeof Phone;
-  label: string;
-  value: string;
-  href?: string;
-}) {
-  const inner = (
-    <div className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-accent/40 hover:bg-white/[0.08]">
-      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-accent/15">
-        <Icon className="h-5 w-5 text-accent" />
-      </div>
-      <div>
-        <div className="text-xs font-medium uppercase tracking-wider text-white/50">
-          {label}
-        </div>
-        <div className="mt-1 font-medium text-white">{value}</div>
-      </div>
-    </div>
-  );
-  return href ? <a href={href}>{inner}</a> : inner;
-}
-
-/* ─────────────────────────── FOOTER ─────────────────────────── */
-
-function Footer() {
-  return (
-    <footer className="border-t border-border bg-white py-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-deep">
-                <Sparkles className="h-4 w-4 text-accent" />
-              </div>
-              <span className="font-serif text-lg font-semibold text-primary-deep">
-                Content Elevation Lab
-              </span>
-            </div>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Engineered solutions to make you the name everyone follows.
-              Business-first content systems in Ottawa.
-            </p>
-          </div>
-          <div>
-            <div className="mb-4 text-xs font-medium uppercase tracking-wider text-primary-deep">
-              Contact
-            </div>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-accent-deep" />
-                <a href={`tel:${PHONE_TEL}`} className="hover:text-primary-deep">
-                  {PHONE}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-accent-deep" />
-                <a href={`mailto:${EMAIL}`} className="hover:text-primary-deep">
-                  {EMAIL}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-accent-deep" />
-                Ottawa, ON, Canada
-              </li>
-            </ul>
-          </div>
-          <div>
-            <div className="mb-4 text-xs font-medium uppercase tracking-wider text-primary-deep">
-              Explore
-            </div>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>
-                <a href="#services" className="hover:text-primary-deep">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-primary-deep">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-primary-deep">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#book" className="hover:text-primary-deep">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground md:flex-row">
-          <div>
-            © {new Date().getFullYear()} Content Elevation Lab. All rights reserved.
-          </div>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-primary-deep">Privacy</a>
-            <a href="#" className="hover:text-primary-deep">Terms</a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
