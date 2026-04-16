@@ -1028,10 +1028,12 @@ function Footer() {
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground md:flex-row">
           <div>
-            © {new Date().getFullYear()} Content Elevation Lab. All rights
-            reserved.
+            © {new Date().getFullYear()} Content Elevation Lab. All rights reserved.
           </div>
-          <div>Rebuilt for conversion by akik-aibud</div>
+          <div className="flex gap-5">
+            <a href="#" className="hover:text-primary-deep">Privacy</a>
+            <a href="#" className="hover:text-primary-deep">Terms</a>
+          </div>
         </div>
       </div>
     </footer>
