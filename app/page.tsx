@@ -16,6 +16,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { SITE } from "@/components/site-config";
+import { NewsletterSection } from "@/components/newsletter-section";
 
 const BOOKING_URL = SITE.booking;
 
@@ -32,6 +33,7 @@ export default function Page() {
         <Services />
         <Comparison />
         <Testimonials />
+        <NewsletterSection />
         <Pricing />
         <FAQ />
         <FinalCTA />
