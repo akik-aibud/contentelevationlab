@@ -684,7 +684,7 @@ function Pricing() {
     },
     {
       name: "Consistency",
-      price: "$780",
+      price: "$799",
       cadence: "/ month",
       tag: "Stay active",
       pitch: "Stay active online without the overwhelm.",
@@ -702,7 +702,7 @@ function Pricing() {
     },
     {
       name: "Authority",
-      price: "$1,070",
+      price: "$1,159",
       cadence: "/ month",
       tag: "Most popular",
       pitch: "Position yourself as a trusted expert.",
@@ -721,7 +721,7 @@ function Pricing() {
     },
     {
       name: "Influence",
-      price: "$1,480",
+      price: "$1,499",
       cadence: "/ month",
       tag: "Growth engine",
       pitch: "Turn your social media into a growth engine.",
