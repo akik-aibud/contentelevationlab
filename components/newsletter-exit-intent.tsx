@@ -22,6 +22,11 @@ export function NewsletterExitIntent() {
 
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_KEY) === "1") return;
+    if (localStorage.getItem("cel-subscribed") === "1") return;
+
+    const visitCount = parseInt(localStorage.getItem("cel-visits") || "0", 10) + 1;
+    localStorage.setItem("cel-visits", String(visitCount));
+    if (visitCount < 2) return;
 
     function handleMouseLeave(e: MouseEvent) {
       if (e.clientY <= 0) {
@@ -33,7 +38,7 @@ export function NewsletterExitIntent() {
 
     const timer = setTimeout(() => {
       document.addEventListener("mouseout", handleMouseLeave);
-    }, 5000);
+    }, 8000);
 
     return () => {
       clearTimeout(timer);
@@ -52,6 +57,7 @@ export function NewsletterExitIntent() {
     setState("submitting");
     setTimeout(() => {
       setState("subscribed");
+      localStorage.setItem("cel-subscribed", "1");
       setTimeout(handleClose, 2500);
     }, 1200);
   }

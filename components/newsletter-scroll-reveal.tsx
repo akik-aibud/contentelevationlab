@@ -18,6 +18,10 @@ export function NewsletterScrollReveal() {
       setDismissed(true);
       return;
     }
+    if (localStorage.getItem("cel-subscribed") === "1") {
+      setDismissed(true);
+      return;
+    }
 
     function onScroll() {
       const scrollPct =
@@ -41,6 +45,7 @@ export function NewsletterScrollReveal() {
     setState("submitting");
     setTimeout(() => {
       setState("subscribed");
+      localStorage.setItem("cel-subscribed", "1");
       setTimeout(handleDismiss, 2500);
     }, 1200);
   }
