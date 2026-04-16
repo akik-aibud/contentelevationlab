@@ -34,6 +34,7 @@ export default function Page() {
         <Services />
         <Comparison />
         <Testimonials />
+        <Founders />
         <Pricing />
         <FAQ />
         <FinalCTA />
@@ -58,16 +59,16 @@ function Nav() {
           </span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-          <a href="#framework" className="hover:text-primary-deep">Framework</a>
           <a href="#services" className="hover:text-primary-deep">Services</a>
+          <a href="#framework" className="hover:text-primary-deep">Framework</a>
           <a href="#pricing" className="hover:text-primary-deep">Pricing</a>
-          <a href="#faq" className="hover:text-primary-deep">FAQ</a>
+          <a href="#about" className="hover:text-primary-deep">About</a>
         </nav>
         <a
           href={BOOKING_URL}
           className="inline-flex items-center gap-1.5 rounded-full bg-primary-deep px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary"
         >
-          Book Free Call
+          Book Consultation
           <ArrowRight className="h-3.5 w-3.5" />
         </a>
       </div>
@@ -95,7 +96,7 @@ function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            Now Booking — Spring 2026 Cohort
+            Business-first content systems in Ottawa
           </div>
 
           <h1 className="font-serif text-5xl leading-[1.05] tracking-tight text-primary-deep md:text-7xl">
@@ -103,14 +104,13 @@ function Hero() {
             <span className="relative inline-block">
               <span className="relative z-10">everyone follows</span>
               <span className="absolute bottom-2 left-0 right-0 -z-0 h-3 bg-accent/40" />
-            </span>{" "}
-            in Ottawa.
+            </span>
+            .
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            One filming day. 90 days of content that actually converts. Built
-            for real estate agents, lawyers, advisors, and consultants who are
-            crushing it offline — and invisible online.
+            Strategy, scripts, filming, editing, and conversion-ready CTAs that
+            turn attention into leads. Built for professionals who sell trust.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -118,51 +118,61 @@ function Hero() {
               href={BOOKING_URL}
               className="group inline-flex items-center gap-2 rounded-full bg-primary-deep px-7 py-4 text-base font-medium text-white shadow-lg shadow-primary-deep/20 transition hover:bg-primary"
             >
-              Book Free 30-Min Strategy Call
+              Book Consultation
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#framework"
+              href="#services"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-4 text-base font-medium text-primary-deep transition hover:border-primary hover:text-primary"
             >
-              See the Framework
+              Explore Services
             </a>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
             <div className="flex items-center gap-1.5">
-              <Shield className="h-4 w-4 text-accent-deep" />
-              No long-term contracts
+              <Sparkles className="h-4 w-4 text-accent-deep" />
+              One filming day = one full season
             </div>
             <div className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-accent-deep" />
-              Results in 60 days or we keep filming free
+              <Target className="h-4 w-4 text-accent-deep" />
+              Seasonal strategy, every video with a purpose
             </div>
             <div className="flex items-center gap-1.5">
               <MapPin className="h-4 w-4 text-accent-deep" />
-              Ottawa-based, Canada-wide
+              Ottawa, ON
             </div>
           </div>
         </div>
 
-        <div className="mt-20 grid grid-cols-2 gap-8 border-t border-border pt-12 md:grid-cols-4">
-          <Stat value="87%" label="Avg. conversion lift in 90 days" />
-          <Stat value="1 day" label="Films 90 days of content" />
-          <Stat value="40+" label="Ottawa professionals served" />
-          <Stat value="4.9/5" label="Average client rating" />
+        <div className="mt-20 grid grid-cols-2 gap-8 border-t border-border pt-12 md:grid-cols-5">
+          <RevenuePillar icon={Shield} label="Authority" />
+          <RevenuePillar icon={TrendingUp} label="Visibility" />
+          <RevenuePillar icon={Clock} label="Consistency" />
+          <RevenuePillar icon={Star} label="Credibility" />
+          <RevenuePillar icon={Target} label="Conversion" />
         </div>
+        <p className="mt-6 text-center text-sm font-medium text-muted-foreground">
+          If your revenue depends on these — we build your content system.
+        </p>
       </div>
     </section>
   );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
+function RevenuePillar({
+  icon: Icon,
+  label,
+}: {
+  icon: typeof Shield;
+  label: string;
+}) {
   return (
-    <div className="text-center">
-      <div className="font-serif text-4xl font-semibold text-primary-deep md:text-5xl">
-        {value}
+    <div className="flex flex-col items-center text-center">
+      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft">
+        <Icon className="h-5 w-5 text-primary" />
       </div>
-      <div className="mt-2 text-xs uppercase tracking-wider text-muted-foreground">
+      <div className="font-serif text-lg font-semibold text-primary-deep">
         {label}
       </div>
     </div>
@@ -174,17 +184,16 @@ function Stat({ value, label }: { value: string; label: string }) {
 function LogoStrip() {
   const industries = [
     "Real Estate",
-    "Legal",
-    "Insurance",
-    "Consulting",
-    "Coaching",
-    "Financial",
+    "Insurance Advisors",
+    "Legal Professionals",
+    "Consultants & Coaches",
+    "Local Business Owners",
   ];
   return (
     <section className="border-y border-border/60 bg-muted py-10">
       <div className="mx-auto max-w-6xl px-6">
         <p className="mb-6 text-center text-xs font-medium uppercase tracking-widest text-muted-foreground">
-          Trusted by Ottawa&apos;s trust-based professionals
+          Industries we commonly work with
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
           {industries.map((i) => (
@@ -202,10 +211,12 @@ function LogoStrip() {
 
 function Problem() {
   const pains = [
-    "You're the best in the room — but online, nobody knows you exist.",
-    "You post randomly. Sometimes twice a week, sometimes nothing for a month.",
-    "You've hired videographers who delivered pretty reels that brought zero clients.",
-    "Referrals carry your business. One slow quarter away from panic.",
+    "Post when they have time",
+    "Have no messaging consistency",
+    "Feel uncomfortable on camera",
+    "Spend too much time editing",
+    "Don't have a clear conversion path",
+    "Get views but no pipeline",
   ];
   return (
     <section className="py-24">
@@ -215,18 +226,28 @@ function Problem() {
             The Problem
           </div>
           <h2 className="font-serif text-4xl text-primary-deep md:text-5xl">
-            Face-to-face you&apos;re magnetic.
+            It isn&apos;t video.
             <br />
-            <span className="text-muted-foreground">Online you&apos;re a ghost.</span>
+            <span className="text-muted-foreground">It&apos;s structure.</span>
           </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Some of the most talented people in Ottawa — realtors, advisors,
+            clinic owners, lawyers, coaches — are exceptional face-to-face. But
+            online, their value gets flattened into random posts and &ldquo;nice
+            videos&rdquo; that don&apos;t convert. Not because they lack skills
+            — because they lack a repeatable system.
+          </p>
         </div>
-        <ul className="space-y-4">
+        <div className="mb-6 text-center text-sm font-medium uppercase tracking-wider text-primary-deep">
+          Most professionals:
+        </div>
+        <ul className="grid gap-3 md:grid-cols-2">
           {pains.map((p) => (
             <li
               key={p}
-              className="flex items-start gap-4 rounded-2xl border border-border bg-white p-6 text-lg text-primary-deep"
+              className="flex items-start gap-3 rounded-2xl border border-border bg-white p-5 text-primary-deep"
             >
-              <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent-soft">
+              <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent-soft">
                 <span className="text-accent-deep">✕</span>
               </div>
               {p}
@@ -234,9 +255,14 @@ function Problem() {
           ))}
         </ul>
         <p className="mt-10 text-center text-lg text-muted-foreground">
-          It&apos;s not a skill problem. It&apos;s a{" "}
-          <span className="font-semibold text-primary-deep">system problem</span>
-          . We build the system.
+          We built a lab-style approach: test what fits{" "}
+          <span className="italic">your</span> personality and market, engineer
+          a strategy that feels natural, and create content that makes your
+          expertise{" "}
+          <span className="font-semibold text-primary-deep">
+            impossible to miss
+          </span>
+          .
         </p>
       </div>
     </section>
@@ -250,23 +276,23 @@ function Framework() {
     {
       icon: Target,
       num: "01",
-      title: "Positioning",
-      desc: "We dig into your expertise, clients, and wins. Then we structure your messaging so every post earns authority — not attention.",
-      outputs: ["Niche map", "Pillar topics", "Signature POV"],
+      title: "Strategic Positioning",
+      desc: "We define your authority angle, content pillars, and messaging structure so your content feels intentional — not random.",
+      outputs: ["Authority angle", "Content pillars", "Messaging structure"],
     },
     {
       icon: Video,
       num: "02",
-      title: "Production",
-      desc: "One filming day per quarter. We batch-shoot 60–90 pieces of content so you never have to think 'what do I post today?' again.",
-      outputs: ["Pro filming day", "Edited shorts", "Branded captions"],
+      title: "Batch Production",
+      desc: "One focused filming session — studio or on-location — creates an entire seasonal content system.",
+      outputs: ["Studio or on-location", "Full seasonal batch", "Ready to publish"],
     },
     {
       icon: TrendingUp,
       num: "03",
-      title: "Conversion",
-      desc: "Every piece has a measurable job — book a call, download a guide, reply DM. We track what converts and double down.",
-      outputs: ["CTA engineering", "Funnel build", "Monthly reporting"],
+      title: "Conversion Engineering",
+      desc: "Every piece of content is designed around a measurable action: DM. Call. Booking. Lead magnet. This is where attention becomes revenue.",
+      outputs: ["Measurable CTAs", "Funnel design", "Attention → revenue"],
     },
   ];
   return (
@@ -274,12 +300,12 @@ function Framework() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center">
           <div className="mb-4 text-xs font-medium uppercase tracking-widest text-accent">
-            The CEL Framework
+            The CEL 3-Step Growth Framework
           </div>
           <h2 className="font-serif text-4xl md:text-5xl">
-            Three steps. Ninety days.
+            Strategy before setup.
             <br />
-            <span className="text-accent">A system you own forever.</span>
+            <span className="text-accent">Growth architecture, not just visuals.</span>
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
@@ -322,85 +348,59 @@ function Framework() {
 /* ─────────────────────────── PROOF ─────────────────────────── */
 
 function Proof() {
-  const cases = [
+  const reasons = [
     {
-      industry: "Real Estate",
-      before: "3 posts/month, zero inbound",
-      after: "12 qualified leads in 60 days",
-      metric: "+400%",
-      metricLabel: "inbound leads",
-      quote:
-        "The first filming day paid for itself before the edits even landed. Three listings from Instagram DMs.",
-      author: "Zara B.",
-      role: "Realtor, Westboro",
+      title: "Business mindset before camera setup",
+      desc: "We understand the revenue goal before a single light gets turned on.",
     },
     {
-      industry: "Legal",
-      before: "Invisible outside of Google ads",
-      after: "2,400 followers, 8 consultations/wk",
-      metric: "+87%",
-      metricLabel: "consult book rate",
-      quote:
-        "I stopped paying for ads. My content IS the ad now — and it converts warmer, better clients.",
-      author: "Ashwin S.",
-      role: "Family Lawyer, Ottawa",
+      title: "Messaging clarity before shooting",
+      desc: "Every script is built around a positioning angle, not a trend.",
     },
     {
-      industry: "Insurance",
-      before: "Cold calling 40 hrs/week",
-      after: "Inbound DMs, calendar full",
-      metric: "+2.1×",
-      metricLabel: "revenue in 4 months",
-      quote:
-        "I used to chase. Now clients come to me already trusting me. It's a completely different business.",
-      author: "Elsie R.",
-      role: "Insurance Advisor",
+      title: "Structured authority positioning",
+      desc: "Your expertise becomes the brand — consistently, across every platform.",
+    },
+    {
+      title: "Conversion-first design",
+      desc: "Every video ends with a measurable next step, not a hope for likes.",
+    },
+    {
+      title: "Seasonal scalability",
+      desc: "One filming day produces a full season of content you can trust.",
     },
   ];
   return (
     <section className="bg-muted py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-5xl px-6">
         <div className="mb-16 text-center">
           <div className="mb-4 text-xs font-medium uppercase tracking-widest text-accent-deep">
-            Real Numbers
+            Why Businesses Choose CEL
           </div>
           <h2 className="font-serif text-4xl text-primary-deep md:text-5xl">
-            What 90 days actually looks like.
+            Most production companies focus on visuals.
+            <br />
+            <span className="text-muted-foreground">
+              We focus on growth architecture.
+            </span>
           </h2>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {cases.map((c) => (
+        <div className="grid gap-5 md:grid-cols-2">
+          {reasons.map((r) => (
             <div
-              key={c.author}
-              className="relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-border"
+              key={r.title}
+              className="flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-border"
             >
-              <div className="mb-6 inline-flex rounded-full bg-primary-soft px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
-                {c.industry}
+              <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary-soft">
+                <Check className="h-4 w-4 text-primary" />
               </div>
-              <div className="mb-6 flex items-baseline gap-2">
-                <span className="font-serif text-5xl font-semibold text-primary-deep">
-                  {c.metric}
-                </span>
-                <span className="text-sm text-muted-foreground">
-                  {c.metricLabel}
-                </span>
-              </div>
-              <div className="mb-6 space-y-2 border-y border-border py-4 text-sm">
-                <div className="flex gap-2">
-                  <span className="font-medium text-muted-foreground">Before:</span>
-                  <span className="text-primary-deep">{c.before}</span>
+              <div>
+                <div className="font-serif text-lg font-semibold text-primary-deep">
+                  {r.title}
                 </div>
-                <div className="flex gap-2">
-                  <span className="font-medium text-accent-deep">After:</span>
-                  <span className="text-primary-deep">{c.after}</span>
-                </div>
-              </div>
-              <Quote className="mb-3 h-6 w-6 text-accent" />
-              <p className="mb-4 text-sm italic leading-relaxed text-primary-deep">
-                &ldquo;{c.quote}&rdquo;
-              </p>
-              <div className="text-xs font-medium text-muted-foreground">
-                — {c.author}, {c.role}
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {r.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -415,28 +415,28 @@ function Proof() {
 function Services() {
   const services = [
     {
-      title: "Content Strategy",
-      desc: "Positioning, pillar topics, 90-day content calendar built around your actual wins and ideal clients.",
+      title: "Content Strategy Coaching",
+      desc: "Discovery sessions assess your positioning, audience, revenue model, authority gaps, and conversion pathways.",
     },
     {
       title: "Script Development",
-      desc: "Hooks that stop the scroll. Stories that build trust. CTAs that convert. All written in your voice.",
+      desc: "Personalized scripts built around your authority pillars, educational themes, and seasonal priorities.",
     },
     {
-      title: "Batch Video Production",
-      desc: "One professional filming day. 60–90 finished pieces. Cinematic edits, branded captions, ready to post.",
+      title: "Video Production",
+      desc: "Professional-grade filming, studio or on-location, engineered for authentic delivery and reusable content.",
     },
     {
-      title: "Social Optimization",
-      desc: "Platform-native strategy for Instagram, LinkedIn, TikTok, and YouTube Shorts. No copy-paste posting.",
+      title: "Social Media Optimization",
+      desc: "Platform-native delivery so every piece lands with the right audience at the right moment.",
     },
     {
       title: "Conversion Engineering",
-      desc: "Landing pages, lead magnets, DM funnels, booking flows. Every view has a next step.",
+      desc: "Every video ends with a measurable action — DM, call, booking, or lead magnet.",
     },
     {
-      title: "Monthly Reporting",
-      desc: "Clear dashboards showing what's working, what's not, and exactly what we're changing next month.",
+      title: "Seasonal Strategy Updates",
+      desc: "A personalized content roadmap with clear positioning and measurable direction, refreshed each season.",
     },
   ];
   return (
@@ -536,24 +536,24 @@ function Comparison() {
 function Testimonials() {
   const quotes = [
     {
-      text: "Akik's team doesn't just film — they think. They reworked my entire positioning and I stopped sounding like every other realtor.",
+      text: "This platform has completely transformed how we manage our marketing campaigns. The ease of use and powerful features have made a significant impact on our ROI.",
       author: "Zara Bush",
-      role: "Realtor, Westboro",
+      role: "Marketing Director",
     },
     {
-      text: "40% conversion increase in the first two months. I've never had a marketing investment pay back this fast.",
+      text: "This platform has revolutionized our business operations. The seamless integration and powerful features have helped us scale our marketing efforts efficiently while maintaining excellent customer relationships.",
       author: "Elsie Roy",
-      role: "Insurance Advisor",
+      role: "Entrepreneur",
     },
     {
-      text: "I hated being on camera. They made it easy, the edits are cinematic, and now clients tell me they 'feel like they already know me' on the first call.",
+      text: "The automation capabilities are incredible. We've saved countless hours and improved our customer engagement significantly.",
       author: "Ashwin Santiago",
-      role: "Family Lawyer",
+      role: "CEO & Founder",
     },
     {
-      text: "One filming day. Ninety days of content. I got my weekends back AND doubled my inbound leads. Ridiculous.",
+      text: "The analytics and reporting features give us insights we never had before. Our conversion rates have improved by 40%.",
       author: "Kaden Scott",
-      role: "Business Coach",
+      role: "Sales Manager",
     },
   ];
   return (
@@ -593,56 +593,143 @@ function Testimonials() {
   );
 }
 
+/* ─────────────────────────── FOUNDERS ─────────────────────────── */
+
+function Founders() {
+  const founders = [
+    {
+      name: "Sina Aminnia",
+      role: "Co-Founder",
+      bio: "Brand strategist and ICF-trained coach with 8+ years in audience development. Built social platforms reaching 380,000 followers. Background in mechanical engineering.",
+      initials: "SA",
+    },
+    {
+      name: "Soroush Saravani",
+      role: "Co-Founder & Strategy Lead",
+      bio: "Business growth strategist and ICF-trained coach specializing in authority-building for service-based businesses.",
+      initials: "SS",
+    },
+  ];
+  return (
+    <section id="about" className="bg-muted py-24">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-12 text-center">
+          <div className="mb-4 text-xs font-medium uppercase tracking-widest text-accent-deep">
+            Meet the Lab
+          </div>
+          <h2 className="font-serif text-4xl text-primary-deep md:text-5xl">
+            Strategy-first.
+            <br />
+            <span className="text-muted-foreground">
+              Professional-grade production.
+            </span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+            An Ottawa-based content strategy and production studio. We help
+            high-quality professionals become recognized names by building
+            trust through clarity, consistency, and strategy.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {founders.map((f) => (
+            <div
+              key={f.name}
+              className="flex flex-col rounded-3xl bg-white p-8 ring-1 ring-border"
+            >
+              <div className="mb-6 flex items-center gap-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-deep font-serif text-xl font-semibold text-accent">
+                  {f.initials}
+                </div>
+                <div>
+                  <div className="font-serif text-2xl text-primary-deep">
+                    {f.name}
+                  </div>
+                  <div className="text-sm font-medium text-accent-deep">
+                    {f.role}
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {f.bio}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─────────────────────────── PRICING ─────────────────────────── */
 
 function Pricing() {
   const tiers = [
     {
-      name: "Starter",
-      price: "$2,450",
-      cadence: "/ quarter",
-      tag: "Test the system",
+      name: "Showcase",
+      price: "$1,490",
+      cadence: "one-time",
+      tag: "Start here",
+      pitch: "Build your first professional presence online.",
       features: [
-        "1 filming day per quarter",
-        "30 edited short-form pieces",
-        "Content calendar + scripts",
-        "Basic platform optimization",
-        "Monthly report",
+        "2-hour discovery & coaching",
+        "Strategy planning & training",
+        "4-hour filming session",
+        "6 scripts",
+        "6 edited videos",
+        "8 branded photos",
       ],
-      cta: "Start with Starter",
+      cta: "Book Showcase",
       featured: false,
     },
     {
-      name: "Growth",
-      price: "$4,950",
-      cadence: "/ quarter",
-      tag: "Most popular",
+      name: "Consistency",
+      price: "$780",
+      cadence: "/ month",
+      tag: "Stay active",
+      pitch: "Stay active online without the overwhelm.",
       features: [
-        "1 filming day per quarter",
-        "60 edited pieces (shorts + long)",
-        "Full strategy + repositioning",
-        "Landing page + lead magnet",
-        "DM funnel build",
-        "Bi-weekly strategy call",
-        "Results guarantee",
+        "Initial discovery sessions",
+        "4 scripts monthly",
+        "Filming every two months",
+        "4 edited videos monthly",
+        "Seasonal training meetings",
       ],
-      cta: "Book Growth Call",
-      featured: true,
+      cta: "Start Consistency",
+      featured: false,
     },
     {
       name: "Authority",
-      price: "Custom",
-      cadence: "",
-      tag: "For teams & firms",
+      price: "$1,070",
+      cadence: "/ month",
+      tag: "Most popular",
+      pitch: "Position yourself as a trusted expert.",
       features: [
-        "2 filming days per quarter",
-        "90+ pieces across all platforms",
-        "Dedicated strategist",
-        "Full funnel + automation build",
-        "Paid amplification layer",
-        "Quarterly on-site workshop",
+        "6 monthly scripts",
+        "4 carousel posts",
+        "6 edited videos",
+        "15 branded photos",
+        "Monthly strategy updates",
+        "Priority scheduling",
       ],
-      cta: "Request Proposal",
+      cta: "Become the Authority",
+      featured: true,
+    },
+    {
+      name: "Influence",
+      price: "$1,480",
+      cadence: "/ month",
+      tag: "Growth engine",
+      pitch: "Turn your social media into a growth engine.",
+      features: [
+        "8 monthly scripts",
+        "6 carousel posts",
+        "8 edited videos",
+        "20 branded photos",
+        "Biweekly meetings",
+        "Live training sessions",
+        "Seasonal funnel analysis",
+      ],
+      cta: "Unlock Influence",
       featured: false,
     },
   ];
@@ -663,13 +750,13 @@ function Pricing() {
             No hidden fees. No surprise invoices. Upgrade or pause any quarter.
           </p>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {tiers.map((t) => (
             <div
               key={t.name}
-              className={`relative flex flex-col rounded-3xl p-8 ${
+              className={`relative flex flex-col rounded-3xl p-7 ${
                 t.featured
-                  ? "bg-primary-deep text-white shadow-2xl shadow-primary-deep/20 ring-2 ring-accent lg:-my-4 lg:py-12"
+                  ? "bg-primary-deep text-white shadow-2xl shadow-primary-deep/20 ring-2 ring-accent"
                   : "bg-white ring-1 ring-border"
               }`}
             >
@@ -684,15 +771,22 @@ function Pricing() {
                 </div>
               )}
               <h3
-                className={`font-serif text-3xl ${
+                className={`font-serif text-2xl ${
                   t.featured ? "text-white" : "text-primary-deep"
                 }`}
               >
                 {t.name}
               </h3>
+              <p
+                className={`mt-2 text-sm ${
+                  t.featured ? "text-white/70" : "text-muted-foreground"
+                }`}
+              >
+                {t.pitch}
+              </p>
               <div className="mt-4 flex items-baseline gap-1">
                 <span
-                  className={`font-serif text-5xl font-semibold ${
+                  className={`font-serif text-4xl font-semibold ${
                     t.featured ? "text-white" : "text-primary-deep"
                   }`}
                 >
@@ -742,12 +836,9 @@ function Pricing() {
           ))}
         </div>
         <p className="mt-10 text-center text-sm text-muted-foreground">
-          All plans include our{" "}
-          <span className="font-medium text-primary-deep">
-            60-day results guarantee
-          </span>
-          : if you don&apos;t see measurable pipeline lift, we film your next
-          quarter free.
+          Every package starts with a discovery session to map your
+          positioning, audience, and authority gaps — so the content we build
+          fits your business, not a template.
         </p>
       </div>
     </section>
@@ -759,28 +850,28 @@ function Pricing() {
 function FAQ() {
   const items = [
     {
-      q: "I hate being on camera. Will this still work?",
-      a: "90% of our clients said the exact same thing on day one. Our filming day is built for people who hate being filmed — we coach, we laugh, we do 30 takes if needed. By lunch you forget the camera is there.",
+      q: "I feel uncomfortable on camera. Will this still work?",
+      a: "Yes. Our discovery and coaching sessions are designed to help you find a delivery style that feels natural. We coach before we shoot — most clients tell us the filming day felt easier than they expected.",
     },
     {
-      q: "How fast will I see results?",
-      a: "Most clients see measurable pipeline lift (DMs, booked calls, leads) within 45–60 days of their first filming day. If you don't, we film the next quarter free — that's our guarantee in writing.",
+      q: "What makes this different from hiring a regular videographer?",
+      a: "A videographer sells you footage. We build a system: strategic positioning, content pillars, scripts, batch production, and conversion engineering — so every video has a measurable job to do.",
     },
     {
-      q: "What makes this different from a regular videographer?",
-      a: "A videographer sells you footage. We sell you a conversion system. Strategy, positioning, scripts, production, funnels, and reporting — all integrated. The video is 20% of the work; the other 80% is what makes it actually grow your business.",
+      q: "How often do we film?",
+      a: "It depends on the package. Showcase is a one-time 4-hour filming day. Consistency films every two months. Authority and Influence run on monthly cadences. One focused session produces a full batch.",
     },
     {
       q: "Do I need a following to start?",
-      a: "No. In fact, most of our clients start with under 500 followers. We build the system that grows the audience — you don't need to bring one.",
+      a: "No. We build the system that grows the audience. Most of our clients start small — strategy and consistency do the heavy lifting.",
     },
     {
-      q: "Can I pause between quarters?",
-      a: "Yes. Every engagement is quarterly, month-to-month invoicing. Pause, resume, or upgrade whenever it fits your business.",
+      q: "What industries do you usually work with?",
+      a: "Real estate professionals, insurance advisors, legal professionals, consultants and coaches, and local business owners. Anyone whose revenue depends on trust and authority.",
     },
     {
       q: "Where do you film?",
-      a: "Our Ottawa studio, your office, or anywhere in the National Capital Region. For Authority clients we travel anywhere in Canada.",
+      a: "In our Ottawa studio or on-location anywhere in the National Capital Region, depending on what fits your brand.",
     },
   ];
   return (
@@ -832,23 +923,23 @@ function FinalCTA() {
       />
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
-          Spring 2026 — Only 6 Slots Left
+          Engineered to make you the name
         </div>
         <h2 className="font-serif text-5xl leading-tight md:text-6xl">
-          Stop being Ottawa&apos;s{" "}
-          <span className="text-accent">best-kept secret</span>.
+          Be the name{" "}
+          <span className="text-accent">everyone follows</span>.
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
-          Book a free 30-minute strategy call. We&apos;ll audit your current
-          content, show you what&apos;s blocking growth, and hand you a plan —
-          whether you hire us or not.
+          Book a consultation. We&apos;ll map your positioning, audience, and
+          authority gaps — and show you what a seasonal content system could
+          look like for your business.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href={`mailto:${EMAIL}?subject=Free%20Strategy%20Call`}
+            href={`mailto:${EMAIL}?subject=Book%20Consultation`}
             className="group inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-medium text-primary-deep shadow-xl shadow-accent/20 transition hover:bg-accent/90"
           >
-            Book Free Strategy Call
+            Book Consultation
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
@@ -858,9 +949,6 @@ function FinalCTA() {
             <Phone className="h-4 w-4" /> {PHONE}
           </a>
         </div>
-        <p className="mt-6 text-sm text-white/50">
-          No pitch. No pressure. You walk away with a plan either way.
-        </p>
       </div>
     </section>
   );
@@ -883,8 +971,8 @@ function Footer() {
               </span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Ottawa&apos;s content system for trust-based professionals. Built
-              for conversion, not just clicks.
+              Engineered solutions to make you the name everyone follows.
+              Business-first content systems in Ottawa.
             </p>
           </div>
           <div>
@@ -916,11 +1004,6 @@ function Footer() {
             </div>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="#framework" className="hover:text-primary-deep">
-                  Framework
-                </a>
-              </li>
-              <li>
                 <a href="#services" className="hover:text-primary-deep">
                   Services
                 </a>
@@ -931,8 +1014,13 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-primary-deep">
-                  FAQ
+                <a href="#about" className="hover:text-primary-deep">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#book" className="hover:text-primary-deep">
+                  Contact
                 </a>
               </li>
             </ul>
