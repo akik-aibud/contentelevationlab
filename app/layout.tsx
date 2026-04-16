@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
-import { NewsletterBottomBar } from "@/components/newsletter-bottom-bar";
 import { NewsletterScrollReveal } from "@/components/newsletter-scroll-reveal";
 import { NewsletterExitIntent } from "@/components/newsletter-exit-intent";
 
@@ -44,7 +43,6 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
-        <NewsletterBottomBar />
         <NewsletterScrollReveal />
         <NewsletterExitIntent />
       </body>
