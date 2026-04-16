@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { ArrowRight, Check, Target, Video, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Target,
+  Video,
+  TrendingUp,
+  Search,
+  Compass,
+  FileText,
+} from "lucide-react";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { PageHero } from "@/components/page-hero";
@@ -7,7 +16,7 @@ import { PageHero } from "@/components/page-hero";
 export const metadata = {
   title: "Services & Pricing — Content Elevation Lab",
   description:
-    "Strategy, scripts, filming, editing, and conversion-ready CTAs. Four packages built for Ottawa's trust-based professionals.",
+    "Structured content systems for professionals who sell trust. Strategy, scripts, filming, editing, and conversion-ready CTAs.",
 };
 
 const services = [
@@ -26,14 +35,6 @@ const services = [
   {
     title: "Social Media Optimization",
     desc: "Platform-native delivery so every piece lands with the right audience at the right moment.",
-  },
-  {
-    title: "Conversion Engineering",
-    desc: "Every video ends with a measurable action — DM, call, booking, or lead magnet.",
-  },
-  {
-    title: "Seasonal Strategy Updates",
-    desc: "A personalized content roadmap with clear positioning and measurable direction, refreshed each season.",
   },
 ];
 
@@ -66,13 +67,13 @@ const tiers = [
     tag: "Start here",
     pitch: "Build your first professional presence online.",
     features: [
-      "2-hour discovery & coaching session",
-      "2-hour content strategy session",
-      "90-minute training",
-      "4 hours filming with operator",
-      "6 scripts",
-      "6 edited videos with cover & captions",
-      "8 branded photos",
+      "2 hrs coaching session (discovery)",
+      "2 hrs content strategy planning session",
+      "Content creating fundamentals training, 1 session 90min",
+      "4 hours in-studio/in office filming with operator",
+      "6 full script pack",
+      "6 edited videos + cover photo + captions",
+      "8 photoshoot",
     ],
     cta: "Book Showcase",
     featured: false,
@@ -84,13 +85,14 @@ const tiers = [
     tag: "Stay active",
     pitch: "Stay active online without the overwhelm.",
     features: [
-      "Initial 2-hour discovery & strategy",
-      "90-minute training",
-      "4 scripts monthly",
-      "5 filming hours every 2 months",
-      "4 edited videos monthly",
-      "8 branded photos",
-      "Seasonal 90-min strategy meetings",
+      "First discovery session 2hrs",
+      "First content strategy session 2hrs",
+      "Content creating fundamentals training, 1 session 90min",
+      "4 full script pack/m",
+      "5 hours in-studio/in office filming with operator/2month",
+      "4 edited videos + cover photo + captions/m",
+      "8 photoshoot",
+      "Seasonal meetings for content strategy update, 90min",
     ],
     cta: "Start Consistency",
     featured: false,
@@ -102,14 +104,15 @@ const tiers = [
     tag: "Most popular",
     pitch: "Position yourself as a trusted expert.",
     features: [
-      "Initial 2-hour discovery & strategy",
-      "90-minute training",
-      "6 scripts monthly",
-      "4 carousel posts monthly",
-      "5 filming hours monthly",
-      "6 edited videos monthly",
-      "15 branded photos",
-      "Monthly 90-min strategy meetings",
+      "First discovery session 2hrs",
+      "First content strategy session 2hrs",
+      "Content creating fundamentals training, 1 session 90min",
+      "6 full script pack/m",
+      "4 carousel post/m",
+      "5 hours in-studio/in office filming with operator/month",
+      "6 edited videos + cover photo + captions/m",
+      "15 photoshoot",
+      "Monthly meetings for content strategy update, 90min",
     ],
     cta: "Become Authority",
     featured: true,
@@ -121,20 +124,48 @@ const tiers = [
     tag: "Growth engine",
     pitch: "Turn your social media into a growth engine.",
     features: [
-      "Initial 2-hour discovery & strategy",
-      "90-minute training",
-      "8 scripts monthly",
-      "6 carousel posts monthly",
-      "5 filming hours monthly",
-      "8 edited videos monthly",
-      "20 branded photos",
-      "Biweekly 90-min meetings",
-      "1-hour live strategy training",
-      "Seasonal sales funnel analysis",
+      "First discovery session 2hrs",
+      "First content strategy session 2hrs",
+      "Content creating fundamentals training, 1 session 90min",
+      "8 full script pack/m",
+      "6 carousel post/m",
+      "5 hours in-studio/in office filming with operator/month",
+      "8 edited videos + cover photo + captions/m",
+      "20 photoshoot",
+      "Biweekly meetings for content strategy update, 90min",
+      "Live strategy training 1hr",
+      "Sales funnel analysis seasonal",
     ],
     cta: "Unlock Influence",
     featured: false,
   },
+];
+
+const discoveryItems = [
+  "Business positioning clarification",
+  "Ideal client identification",
+  "Revenue model analysis",
+  "Authority gap assessment",
+  "Market perception review",
+  "Messaging alignment",
+  "Conversion pathway mapping",
+];
+
+const strategyItems = [
+  "Core authority pillars",
+  "Educational themes aligned with your services",
+  "Trust-building story angles",
+  "Market-specific messaging direction",
+  "Call-to-action pathways",
+  "Seasonal focus priorities",
+];
+
+const outcomeItems = [
+  "A personalized content roadmap",
+  "Clear positioning clarity",
+  "Script-ready topic structure",
+  "Defined conversion goals",
+  "A measurable content direction",
 ];
 
 export default function ServicesPage() {
@@ -146,16 +177,17 @@ export default function ServicesPage() {
           eyebrow="Services & Pricing"
           title={
             <>
-              Everything you need.
+              Structured content systems for
               <br />
               <span className="text-muted-foreground">
-                Nothing you don&apos;t.
+                professionals who sell trust.
               </span>
             </>
           }
-          subtitle="Strategy, scripts, filming, editing, and conversion-ready CTAs — delivered through four packages built for Ottawa's trust-based professionals."
+          subtitle="Strategy-led content production designed to build authority, increase visibility, and generate qualified leads — delivered through a structured seasonal system."
         />
 
+        {/* ── SERVICES ── */}
         <section className="py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-12 text-center">
@@ -163,10 +195,14 @@ export default function ServicesPage() {
                 What We Do
               </div>
               <h2 className="font-serif text-4xl text-primary-deep md:text-5xl">
-                Six services. One integrated system.
+                Strategy, production, and conversion design
+                <br />
+                <span className="text-muted-foreground">
+                  in one streamlined workflow.
+                </span>
               </h2>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2">
               {services.map((s) => (
                 <div
                   key={s.title}
@@ -187,6 +223,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
+        {/* ── FRAMEWORK ── */}
         <section className="bg-primary-deep py-24 text-white">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-16 text-center">
@@ -223,7 +260,50 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-b from-white to-primary-soft/30 py-24">
+        {/* ── STRATEGY DETAIL ── */}
+        <section className="py-24">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-16 text-center">
+              <div className="mb-4 text-xs font-medium uppercase tracking-widest text-accent-deep">
+                What&apos;s Included
+              </div>
+              <h2 className="font-serif text-4xl text-primary-deep md:text-5xl">
+                Before any filming begins.
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+                We conduct structured discovery and coaching sessions to
+                understand your business model, positioning, target audience,
+                growth goals, and market dynamics. This allows us to build a
+                fully personalized content system — not just a content
+                calendar.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <DetailCard
+                icon={Search}
+                title="What Happens During Discovery?"
+                items={discoveryItems}
+                footer="These sessions help us identify where your visibility is misaligned — and what type of content will actually support growth."
+              />
+              <DetailCard
+                icon={Compass}
+                title="How Is the Strategy Built?"
+                items={strategyItems}
+                footer="Based on insights gathered during discovery, we design a strategy tailored specifically to you."
+              />
+              <DetailCard
+                icon={FileText}
+                title="What Is the Outcome?"
+                items={outcomeItems}
+                footer="This ensures that every piece of content serves a strategic business purpose — not just online presence."
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── PACKAGES ── */}
+        <section className="bg-gradient-to-b from-muted to-primary-soft/30 py-24">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-16 text-center">
               <div className="mb-4 text-xs font-medium uppercase tracking-widest text-accent-deep">
@@ -232,12 +312,8 @@ export default function ServicesPage() {
               <h2 className="font-serif text-4xl text-primary-deep md:text-5xl">
                 Pick your starting line.
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-                Every package starts with a discovery session to map your
-                positioning, audience, and authority gaps.
-              </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-6 md:grid-cols-2">
               {tiers.map((t) => (
                 <div
                   key={t.name}
@@ -323,13 +399,47 @@ export default function ServicesPage() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-8 space-y-3 text-center text-sm text-muted-foreground">
+              <p>
+                * Videos are edited as short-form content, optimized for
+                social media platforms, with a maximum length of 90 seconds
+                each.
+              </p>
+              <p>
+                ** You may choose one long-form video (up to 5 minutes)
+                instead of three short-form videos.
+              </p>
+              <p className="font-medium text-primary-deep">
+                Yearly commitment — monthly payments.
+              </p>
+            </div>
+
+            <div className="mt-12 rounded-3xl bg-accent-soft p-8 text-center ring-1 ring-accent/30">
+              <div className="mb-2 text-xs font-medium uppercase tracking-widest text-accent-deep">
+                Limited Offer
+              </div>
+              <h3 className="font-serif text-2xl text-primary-deep">
+                Special pricing for our first 10 clients.
+              </h3>
+              <p className="mt-3 text-muted-foreground">
+                Contact us to learn about our introductory rates.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary-deep px-7 py-3.5 text-sm font-medium text-white transition hover:bg-primary"
+              >
+                Book Consultation <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
+        {/* ── CTA ── */}
         <section className="bg-primary-deep py-20 text-white">
           <div className="mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
             <h2 className="font-serif text-4xl md:text-5xl">
-              Not sure which fits?
+              Not sure which package fits?
             </h2>
             <p className="mt-4 max-w-xl text-white/70">
               Book a consultation. We&apos;ll help you choose the package that
@@ -346,5 +456,37 @@ export default function ServicesPage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+function DetailCard({
+  icon: Icon,
+  title,
+  items,
+  footer,
+}: {
+  icon: typeof Search;
+  title: string;
+  items: string[];
+  footer: string;
+}) {
+  return (
+    <div className="flex flex-col rounded-3xl border border-border bg-white p-8">
+      <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
+        <Icon className="h-6 w-6" />
+      </div>
+      <h3 className="mb-6 font-serif text-xl text-primary-deep">{title}</h3>
+      <ul className="flex-1 space-y-3">
+        {items.map((it) => (
+          <li key={it} className="flex items-start gap-3 text-sm">
+            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+            <span className="text-primary-deep">{it}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 border-t border-border pt-6 text-sm leading-relaxed text-muted-foreground">
+        {footer}
+      </p>
+    </div>
   );
 }
