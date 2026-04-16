@@ -131,7 +131,7 @@ export function NewsletterExitIntent() {
           ) : (
             <>
               <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-                Join 200+ Ottawa pros who get one content strategy, one
+                Join Ottawa professionals who get one content strategy, one
                 example, and one action to grow their brand — every week.
               </p>
 

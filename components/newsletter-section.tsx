@@ -117,7 +117,7 @@ export function NewsletterSection() {
                     <Mail className="h-7 w-7 text-accent" />
                   </div>
                   <p className="mb-6 text-center text-sm text-white/70">
-                    Join 200+ Ottawa professionals getting smarter about
+                    Join Ottawa professionals getting smarter about
                     content every week.
                   </p>
                   <form
