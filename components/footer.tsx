@@ -1,11 +1,20 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Sparkles } from "lucide-react";
 import { SITE } from "./site-config";
+import { FooterNewsletter } from "./footer-newsletter";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-white py-16">
-      <div className="mx-auto max-w-6xl px-6">
+    <footer className="border-t border-border bg-white">
+      {/* Newsletter band */}
+      <div className="border-b border-border bg-primary-deep">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <FooterNewsletter />
+        </div>
+      </div>
+
+      {/* Main footer */}
+      <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2">
